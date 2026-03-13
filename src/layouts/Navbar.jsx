@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import ThemeToggle from "../components/ThemeToggle";
-import ProfileLogo from "../assets/images/profileLogo.png";
+import profileLogo from "../assets/images/profileLogo.png";
 
 function Navbar() {
   const navLink =
@@ -47,7 +47,7 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center justify-between gap-2">
           <img
-            src={ProfileLogo}
+            src={profileLogo}
             alt="Pallavi Bhalerao"
             className="w-10 h-10 rounded-full shadow-lg shadow-indigo-300 dark:shadow-gray-700"
           />

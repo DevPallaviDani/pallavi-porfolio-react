@@ -1,7 +1,7 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import DeveloperImg from "../assets/images/developer.png";
+import developerImg from "../assets/images/developer.png";
 
 function Hero() {
   return (
@@ -98,7 +98,7 @@ function Hero() {
             {/* <div className="absolute w-72 h-72 bg-indigo-500 blur-3xl opacity-30 dark:opacity-40 dark:bg-indigo-400 rounded-full"></div> */}
             <div className="absolute w-72 h-72 bg-gradient-to-r from-indigo-500 to-purple-500 blur-3xl opacity-30 rounded-full"></div>
             <img
-              src={DeveloperImg}
+              src={developerImg}
               alt="developer illustration"
               className="relative w-80 animate-float mix-blend-multiply dark:brightness-125  drop-shadow-xl [mask-image:linear-gradient(to_bottom,black,transparent)]"
             />
