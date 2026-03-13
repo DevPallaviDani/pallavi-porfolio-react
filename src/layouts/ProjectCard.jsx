@@ -3,7 +3,7 @@ import React from "react";
 function ProjectCard({ project }) {
   return (
     <>
-      <div className=" group relative rounded-xl overflow-hidden shadow-lg">
+      <div className="group relative rounded-xl overflow-hidden shadow-lg" >
         <img
           src={project.image}
           alt={project.title}
