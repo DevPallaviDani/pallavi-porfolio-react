@@ -1,7 +1,7 @@
 import React from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import DeveloperImg from "../assets/Images/developer.png";
+import DeveloperImg from "../assets/images/developer.png";
 
 function Hero() {
   return (
