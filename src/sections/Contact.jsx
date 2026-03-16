@@ -9,7 +9,7 @@ function Contact() {
 
       className="pt-32 pb-20 min-h-screen px-4 md:px-8 relative bg-gray-50 dark:bg-gray-900 section-offset"
     >
-      <div>
+      <div className="h-screen">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
           Contact <span className="text-indigo-500">Me</span>
         </h2>

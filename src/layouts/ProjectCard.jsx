@@ -6,7 +6,7 @@ function ProjectCard({ project }) {
       <div className="group relative rounded-xl overflow-hidden shadow-lg" >
         <img
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} website screenshot`}
           className="w-full h-48 object-cover group-hover:scale-110 transition duration-500"
         />
 

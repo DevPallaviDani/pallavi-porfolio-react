@@ -5,9 +5,9 @@ function About() {
     <section
       id="about"
       // className="min-h-screen flex flex-col md:flex-row items-center justify-between px-8 gap-10 py-24"
-      className="pt-32 pb-20 min-h-screen px-4 md:px-8 relative bg-gray-50 dark:bg-gray-900 section-offset"
+      className="pt-32 pb-20 min-h-screen px-4 md:px-8 relative bg-gray-50 dark:bg-gray-900 section-offset snap-center"
     >
-      <div>
+      <div className="h-screen">
         <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
           About <span className="text-indigo-500">Me</span>
         </h2>
