@@ -13,7 +13,7 @@ function ThemeToggle() {
   }, [darkMode]);
 
   return <button onClick={() => setDarkMode(!darkMode)}
-  className="px-3 py-2 rounded-md border dark:border-gray-600">
+  className="px-3 py-2 rounded-md dark:border-gray-600">
      {darkMode ? "☀️" : "🌙"}
     </button>;
 }

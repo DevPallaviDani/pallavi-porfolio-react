@@ -15,8 +15,8 @@ function Contact() {
         </h2>
         <div className="max-w-2xl mx-auto flex flex-col md:flex-col items-center justify-between gap-10">
           <p className="text-gray-600 dark:text-gray-400 mb-8">
-            Feel free to reach out if you would like to collaborate or just say
-            hello.
+           "I'm currently open to new opportunities in frontend development.
+           Feel free to reach out if you’d like to collaborate or discuss a project."
           </p>
           <div className="flex justify-center gap-8 flex-wrap">
             <a

@@ -8,8 +8,8 @@
         image: portfolio,
         description:"A responsive and visually appearing personal portfolio website built with ReactJs and Tailwind CSS. It showcases my projects and skills.",
         tech:"React | Tailwind CSS | Javascript",
-        githublink:"",
-        live:""
+        githublink:"https://github.com/DevPallaviDani/pallavi-bhalerao-portfolio",
+        live:"https://pallavibhalerao.vercel.app"
     },
      {
         title: "Project Management Project",

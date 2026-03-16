@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import ThemeToggle from "../components/ThemeToggle";
 import profilelogo from "../assets/images/profilelogo.png";
@@ -9,8 +9,10 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef(null);
 
   useEffect(() => {
+    ///Handle Scroll
     const handleScroll = () => {
       const sections = ["home", "about", "projects", "skills", "contact"];
       setScrolled(window.scrollY > 20);
@@ -30,7 +32,35 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    ///Detect Click outside menu
+
+    const handleClickOutsite = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutsite);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+
+      document.removeEventListener("mousedown", handleClickOutsite);
+    };
+  }, []);
+
+  ///resize Logic for hamburger menu automatically closes when screen changes from mobile → desktop.
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -58,16 +88,6 @@ function Navbar() {
             <span className="text-gray-900 dark:text-white">Bhalerao</span>
           </h1>
         </div>
-
-        <button
-          onClick={() => {
-            setMenuOpen(!menuOpen);
-          }}
-          className="md:hidden text-2xl"
-        >
-          {" "}
-          ☰
-        </button>
 
         <div className="hidden md:flex items-center gap-8">
           <a
@@ -127,59 +147,66 @@ function Navbar() {
           >
             Contact
           </a>
+        </div>
 
-          <div className="ml-2 flex items-center">
-            <ThemeToggle />
-          </div>
+        <div ref={menuRef} className=" relative ml-2 flex items-center">
+          <button
+            onClick={() => {
+              setMenuOpen(!menuOpen);
+            }}
+            className="md:hidden text-2xl hover:text-indigo-500 transition"
+          >
+            {" "}
+           {/* {menuOpen ? "x":"☰"}  */}
+           ☰
+          </button>
+
+          {menuOpen && (
+            <div className="md:hidden absolute top-full right-0 w-fit">
+              <div className="max-w-xs mx-auto pt-2 pb-4 pr-5 pl-5 space-y-3 bg-white dark:bg-gray-900 rounded-lg shadow">
+                <a
+                  href="#home"
+                  onClick={() => setMenuOpen(false)}
+                  className="block"
+                >
+                  Home
+                </a>
+
+                <a
+                  href="#about"
+                  onClick={() => setMenuOpen(false)}
+                  className="block"
+                >
+                  About
+                </a>
+
+                <a
+                  href="#projects"
+                  onClick={() => setMenuOpen(false)}
+                  className="block"
+                >
+                  Projects
+                </a>
+                <a
+                  href="#skills"
+                  onClick={() => setMenuOpen(false)}
+                  className="block"
+                >
+                  Skills
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMenuOpen(false)}
+                  className="block"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
+          <ThemeToggle />
         </div>
       </div>
-      {menuOpen && (
-        <div className="md:hidden absolute top-full right-0 w-fit justify-items-start ">
-          <div className="max-w-xs mx-auto place-items-end pt-2 pb-4 pr-6 space-y-4 ml-8 bg-white dark:bg-gray-900 rounded-lg shadow">
-            <a
-              href="#home"
-              onClick={() => setMenuOpen(false)}
-              className="block"
-            >
-              Home
-            </a>
-
-            <a
-              href="#about"
-              onClick={() => setMenuOpen(false)}
-              className="block"
-            >
-              About
-            </a>
-
-            <a
-              href="#projects"
-              onClick={() => setMenuOpen(false)}
-              className="block"
-            >
-              Projects
-            </a>
-            <a
-              href="#skills"
-              onClick={() => setMenuOpen(false)}
-              className="block"
-            >
-              Skills
-            </a>
-            <a
-              href="#contact"
-              onClick={() => setMenuOpen(false)}
-              className="block"
-            >
-              Contact
-            </a>
-            {/* <hr className="my-4 border-gray-300 dark:border-gray-600" /> */}
-            <div className="ml-2 flex items-center">
-              <ThemeToggle />
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   );
 }
